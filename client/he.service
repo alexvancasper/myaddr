@@ -1,0 +1,13 @@
+[Unit]
+Description=Hurricane Electric Tunnel broker IPv4 endpoit updater
+After=network.target
+
+[Service]
+ExecStart=/opt/refresh-ip/he.py
+ExecReload=/usr/bin/pkill he.py
+Type=simple
+Restart=always
+
+[Install]
+WantedBy=default.target
+RequiredBy=network.target

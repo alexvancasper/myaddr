@@ -1,0 +1,14 @@
+[Unit]
+Description=My external address
+After=network.target
+
+[Service]
+Environment="HTTP_PORT=80"
+ExecStart=/opt/myaddr/myaddrsrv
+ExecReload=/usr/bin/pkill myaddrsrv
+Type=simple
+Restart=always
+
+[Install]
+WantedBy=default.target
+RequiredBy=network.target
